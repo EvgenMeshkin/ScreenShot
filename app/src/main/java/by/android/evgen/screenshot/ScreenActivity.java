@@ -1,6 +1,7 @@
 package by.android.evgen.screenshot;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +29,8 @@ public class ScreenActivity extends Activity {
         View btnScreen = findViewById(R.id.btn_screen);
         final ImageView screenIcon = (ImageView) findViewById(R.id.screen_icon);
         final RelativeLayout container = (RelativeLayout) findViewById(R.id.container);
-
+        Intent service = new Intent(this, ScreenService.class);
+        startService(service);
         btnScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,18 +66,8 @@ public class ScreenActivity extends Activity {
                 }
                 sb . rewind ();
                 bitmap . copyPixelsFromBuffer ( sb );
-//                container . captureBmp = bitmap . copy ( Bitmap . Config . ARGB_8888 , false );
-//                MainImageProcessingActivity . capture = false ;
-//
-//
-//
-//
-//
-//                Bitmap bitmap;
-//                View v1 = ScreenActivity.this.getWindow().getDecorView();
-//                v1.setDrawingCacheEnabled(true);
-//                bitmap = Bitmap.createBitmap(v1.getDrawingCache());
-//                screenIcon.setImageBitmap(bitmap);
+
+
                 screenIcon.setImageBitmap(bitmap);
             }
         });
