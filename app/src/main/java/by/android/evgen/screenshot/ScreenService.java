@@ -27,6 +27,7 @@ public class ScreenService extends Service {
     private Field mField;
 
     private String mNamePackageLaunch;
+    public static final String TAG = ScreenService.class.getCanonicalName();
 
     @Override
     public void onCreate() {
@@ -92,7 +93,7 @@ public class ScreenService extends Service {
             } else {
                 ComponentName baseActivity = list.get(0).baseActivity;
                 top = baseActivity.getPackageName();
-                Log.d("******", "*******" + top + "***" + list.get(0).baseActivity.getClass());
+                Log.d(TAG, "***" + top + "***" + list.get(0).baseActivity.getClass());
             }
         }
         return top.contains(mNamePackageLaunch);

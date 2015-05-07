@@ -19,8 +19,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Intent intent = new Intent(this, ScreenActivity.class);
-//        startActivity(intent);
         View btnScreen = findViewById(R.id.btn_screen);
         btnScreen.setOnClickListener(new View.OnClickListener() {
             @Override

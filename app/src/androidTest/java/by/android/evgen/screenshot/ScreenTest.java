@@ -48,13 +48,12 @@ public class ScreenTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
     public void testCase() {
         String testCaseName = String.format("%s.%s", getClass().getName(), getName());
-        Log.d("***", "****" + getClass().getName() + "***" + getName());
         solo.takeScreenshot(testCaseName);
-//        solo.goBackToActivity("by.android.evgen.screenshot.ScreenActivity");
-//        solo.getCurrentActivity();
-//        solo.startScreenshotSequence (String) / startScreenshotSequence (String, Int, Int, Int);
-//        solo.stopScreenshotSequence ();
-//        solo.getScreenshotSequence (String, Boolean, String, String);
+/*        solo.goBackToActivity("by.android.evgen.screenshot.ScreenActivity");
+        solo.getCurrentActivity();
+        solo.startScreenshotSequence (String) / startScreenshotSequence (String, Int, Int, Int);
+        solo.stopScreenshotSequence ();
+        solo.getScreenshotSequence (String, Boolean, String, String);*/
         Assert.assertTrue(true);
     }
 
