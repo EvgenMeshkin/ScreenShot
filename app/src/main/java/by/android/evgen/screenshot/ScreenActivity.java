@@ -1,16 +1,20 @@
 package by.android.evgen.screenshot;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.InstrumentationInfo;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.ShortBuffer;
+import java.util.List;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLContext;
@@ -63,8 +67,31 @@ public class ScreenActivity extends Activity {
                 bitmap.copyPixelsFromBuffer(sb);
 
                 screenIcon.setImageBitmap(bitmap);
+
+                runTests();
+
             }
         });
 
     }
+
+    private void runTests() {
+        final String packageName = getPackageName();
+        final List<InstrumentationInfo> list =
+                getPackageManager().queryInstrumentation(packageName, 0);
+        if ( list.isEmpty() ) {
+            Toast.makeText(this, "Cannot find instrumentation for " + packageName,
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        final InstrumentationInfo instrumentationInfo = list.get(0);
+        final ComponentName componentName =
+                new ComponentName(instrumentationInfo.packageName,
+                        instrumentationInfo.name);
+        if ( !startInstrumentation(componentName, null, null) ) {
+            Toast.makeText(this, "Cannot run instrumentation for " + packageName,
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
