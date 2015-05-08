@@ -1,13 +1,10 @@
 package by.android.evgen.screenshot;
 
-import android.app.Instrumentation;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
 import android.view.View;
-
-import com.robotium.solo.Solo;
 
 import junit.framework.Assert;
 
@@ -20,7 +17,7 @@ import java.io.IOException;
  */
 public class ScreenTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
-    private Solo solo;
+//    private Solo solo;
     private MainActivity mainActivity;
 
     public ScreenTest() {
@@ -29,12 +26,15 @@ public class ScreenTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
     protected void setUp() throws Exception {
         super.setUp();
-        solo = new Solo(getInstrumentation(), getActivity());
+//        solo = new Solo(getInstrumentation(), getActivity());
+        Log.d("***", "***Start test");
         mainActivity = getActivity();
+
     }
 
     public void testActivity() {
-        solo.waitForActivity(by.android.evgen.screenshot.MainActivity.class);
+//        solo.waitForActivity(MainActivity.class);
+        Log.d("***", "***testActivity");
         View view = mainActivity.getWindow().getDecorView().getRootView();
         view.setDrawingCacheEnabled(true);
         try {
@@ -48,7 +48,7 @@ public class ScreenTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
     public void testCase() {
         String testCaseName = String.format("%s.%s", getClass().getName(), getName());
-        solo.takeScreenshot(testCaseName);
+//        solo.takeScreenshot(testCaseName);
 /*        solo.goBackToActivity("by.android.evgen.screenshot.ScreenActivity");
         solo.getCurrentActivity();
         solo.startScreenshotSequence (String) / startScreenshotSequence (String, Int, Int, Int);

@@ -36,7 +36,6 @@ public class MainActivity extends Activity {
         Canvas canvas = new Canvas(bitmap);
         view.draw(canvas);
         return bitmap;
-
     }
 
 

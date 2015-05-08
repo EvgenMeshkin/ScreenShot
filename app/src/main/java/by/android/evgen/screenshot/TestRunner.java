@@ -2,6 +2,7 @@ package by.android.evgen.screenshot;
 
 import android.test.InstrumentationTestRunner;
 import android.test.InstrumentationTestSuite;
+import android.util.Log;
 
 import junit.framework.TestSuite;
 
@@ -12,8 +13,10 @@ public class TestRunner extends InstrumentationTestRunner {
 
     @Override
     public TestSuite getAllTests(){
+        Log.d("***", "***testActivitySuite");
         InstrumentationTestSuite suite = new InstrumentationTestSuite(this);
         suite.addTestSuite(ScreenTest.class);
+//        getCurrentProces().getCurrentWindow().ge
         return suite;
     }
 

@@ -32,8 +32,8 @@ public class ScreenActivity extends Activity {
         View btnScreen = findViewById(R.id.btn_screen);
         final ImageView screenIcon = (ImageView) findViewById(R.id.screen_icon);
         final RelativeLayout container = (RelativeLayout) findViewById(R.id.container);
-        Intent service = new Intent(this, ScreenService.class);
-        startService(service);
+//        Intent service = new Intent(this, ScreenService.class);
+//        startService(service);
         btnScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +76,7 @@ public class ScreenActivity extends Activity {
     }
 
     private void runTests() {
-        final String packageName = getPackageName();
+        final String packageName = "by.android.evgen.vkclientexample";//getPackageName();
         final List<InstrumentationInfo> list =
                 getPackageManager().queryInstrumentation(packageName, 0);
         if ( list.isEmpty() ) {

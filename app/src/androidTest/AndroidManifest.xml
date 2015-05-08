@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="by.android.evgen.screenshot.test"
+    xmlns:tools = "http://schemas.android.com/tools">
+
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="21" />
+
+    <application
+        android:label="Test for screen">
+
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="by.android.evgen.screenshot.TestRunner"
+        android:targetPackage="by.android.evgen.vkclientexample"
+        android:handleProfiling="false"
+        android:functionalTest="false"
+        android:label="Tests for by.android.evgen.vkclientexample"
+        tools:replace="android:targetPackage, android:label"/>
+</manifest>
