@@ -1,11 +1,17 @@
 package by.android.evgen.screenshot;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.InstrumentationTestCase;
 import android.util.Log;
+import android.view.Display;
+import android.view.View;
+import android.view.WindowManager;
 
 import com.robotium.solo.Solo;
 
@@ -17,7 +23,7 @@ import junit.framework.Assert;
 public class ScreenSoloTest extends InstrumentationTestCase {
     private Solo solo;
 
-    private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "by.android.evgen.vkclientexample.activity.StartActivity";
+    private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "by.android.evgen.vkclientexample.activity.FriendsActivity";
 
    /* private static Class<?> launcherActivityClass;
 
@@ -44,12 +50,12 @@ public class ScreenSoloTest extends InstrumentationTestCase {
         super.tearDown();
     }*/
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void testCase() {
         String testCaseName = String.format("%s.%s", getClass().getName(), getName());
         Log.d("***", "***testActivity1");
         Instrumentation instrumentation = getInstrumentation();
         Log.d("***", "***testActivity2" + instrumentation.getComponentName());
-
         // Register we are interested in the authentication activiry...
         Instrumentation.ActivityMonitor monitor = instrumentation.addMonitor(LAUNCHER_ACTIVITY_FULL_CLASSNAME, null, false);
         Log.d("***", "***testActivity3");
@@ -57,21 +63,13 @@ public class ScreenSoloTest extends InstrumentationTestCase {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setClassName(instrumentation.getTargetContext(), LAUNCHER_ACTIVITY_FULL_CLASSNAME);
         Log.d("***", "***testActivity4");
-        instrumentation.getContext().startActivity(intent);
+//        instrumentation.getContext().startActivity(intent);
         Log.d("***", "***testActivity5");
-        Activity currentActivity = getInstrumentation().waitForMonitorWithTimeout(monitor, 5);
+        Activity currentActivity = getInstrumentation().waitForMonitorWithTimeout(monitor, 500000);
+        View view = currentActivity.getWindow().getDecorView().getRootView();
 //        Log.d("***", "***testActivity" + currentActivity.getClass().getCanonicalName());
         solo = new Solo(getInstrumentation(), currentActivity);
-
-
-
-        solo.takeScreenshot(testCaseName);
-/*        solo.goBackToActivity("by.android.evgen.screenshot.ScreenActivity");
-        solo.getCurrentActivity();
-        solo.startScreenshotSequence (String) / startScreenshotSequence (String, Int, Int, Int);
-        solo.stopScreenshotSequence ();
-        solo.getScreenshotSequence (String, Boolean, String, String);*/
-//        View v = getWindow().getDecorView().getRootView();
+        Log.d("***", "***testActivity6" + view.toString());
         Assert.assertTrue(true);
     }
 

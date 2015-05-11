@@ -49,8 +49,8 @@
 
     <instrumentation android:name="by.android.evgen.screenshot.TestRunner"
         android:targetPackage="by.android.evgen.vkclientexample"
-        android:handleProfiling="false"
-        android:functionalTest="false"
+        android:handleProfiling="true"
+        android:functionalTest="true"
         android:label="Tests for by.android.evgen.vkclientexample"
         tools:replace="android:targetPackage, android:label"/>
 
