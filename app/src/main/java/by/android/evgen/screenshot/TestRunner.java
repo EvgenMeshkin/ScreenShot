@@ -1,9 +1,12 @@
 package by.android.evgen.screenshot;
 
+import android.content.Intent;
 import android.test.InstrumentationTestRunner;
 import android.test.InstrumentationTestSuite;
+import android.test.suitebuilder.TestSuiteBuilder;
 import android.util.Log;
 
+import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
@@ -13,11 +16,22 @@ public class TestRunner extends InstrumentationTestRunner {
 
     @Override
     public TestSuite getAllTests(){
-        Log.d("***", "***testActivitySuite");
         InstrumentationTestSuite suite = new InstrumentationTestSuite(this);
-        suite.addTestSuite(ScreenTest.class);
+        suite.addTestSuite(ScreenSoloTest.class);
+
+        Log.d("***", "***testActivitySuite");
+
+//        Intent intent = new Intent(getInstrumentation().getTargetContext(), clazz);
+//        intent.setFlags(intent.getFlags() | FLAG_ACTIVITY_NEW_TASK);
+//        getInstrumentation().startActivitySync(intent);
 //        getCurrentProces().getCurrentWindow().ge
         return suite;
+    }
+
+    public  static Test suite (){
+        return  new TestSuiteBuilder( ScreenSoloTest . class )
+                . includeAllPackagesUnderHere ()
+                . build ();
     }
 
     @Override

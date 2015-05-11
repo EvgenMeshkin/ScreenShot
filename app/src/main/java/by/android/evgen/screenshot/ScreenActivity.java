@@ -37,7 +37,7 @@ public class ScreenActivity extends Activity {
         btnScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int width = container.getWidth();
+                /*int width = container.getWidth();
                 int height = container.getHeight();
                 int screenshotSize = width * height;
                 ByteBuffer bb = ByteBuffer.allocateDirect(screenshotSize * 4);
@@ -66,7 +66,7 @@ public class ScreenActivity extends Activity {
                 sb.rewind();
                 bitmap.copyPixelsFromBuffer(sb);
 
-                screenIcon.setImageBitmap(bitmap);
+                screenIcon.setImageBitmap(bitmap);*/
 
                 runTests();
 
