@@ -28,16 +28,17 @@ public class ScreenActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.screen_activity);
+        runTests();
+       /* setContentView(R.layout.screen_activity);
         View btnScreen = findViewById(R.id.btn_screen);
         final ImageView screenIcon = (ImageView) findViewById(R.id.screen_icon);
-        final RelativeLayout container = (RelativeLayout) findViewById(R.id.container);
+        final RelativeLayout container = (RelativeLayout) findViewById(R.id.container);*/
 //        Intent service = new Intent(this, ScreenService.class);
 //        startService(service);
-        btnScreen.setOnClickListener(new View.OnClickListener() {
+      /*  btnScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*int width = container.getWidth();
+                *//*int width = container.getWidth();
                 int height = container.getHeight();
                 int screenshotSize = width * height;
                 ByteBuffer bb = ByteBuffer.allocateDirect(screenshotSize * 4);
@@ -66,12 +67,12 @@ public class ScreenActivity extends Activity {
                 sb.rewind();
                 bitmap.copyPixelsFromBuffer(sb);
 
-                screenIcon.setImageBitmap(bitmap);*/
+                screenIcon.setImageBitmap(bitmap);*//*
 
                 runTests();
 
             }
-        });
+        });*/
 
     }
 

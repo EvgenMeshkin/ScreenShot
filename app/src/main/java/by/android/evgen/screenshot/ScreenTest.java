@@ -29,7 +29,6 @@ public class ScreenTest extends InstrumentationTestCase {
         solo = new Solo(getInstrumentation());
         Log.d("***", "***Start test");
 //        friendsActivity = getActivity();
-
     }
 
     public void testActivity() {

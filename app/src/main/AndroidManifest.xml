@@ -50,9 +50,11 @@
 
     <instrumentation android:name="by.android.evgen.screenshot.TestRunner"
         android:targetPackage="by.android.evgen.testapplication"
-        android:handleProfiling="true"
-        android:functionalTest="true"
+        android:handleProfiling="false"
+        android:functionalTest="false"
         android:label="Tests for by.android.evgen.testapplication"
-        tools:replace="android:targetPackage, android:label"/>
+        tools:replace="android:targetPackage, android:label">
+
+    </instrumentation>
 
 </manifest>
