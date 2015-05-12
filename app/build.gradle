@@ -10,7 +10,7 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
-        /*multiDexEnabled = true*/
+        multiDexEnabled = true
     }
     buildTypes {
         release {
@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.android.support:support-v4:21.0.0'
     compile 'com.jayway.android.robotium:robotium-solo:5.2.1'
+    compile 'com.android.support:multidex:1.0.0'
 }

@@ -76,7 +76,7 @@ public class ScreenActivity extends Activity {
     }
 
     private void runTests() {
-        final String packageName = "by.android.evgen.vkclientexample";//getPackageName();
+        final String packageName = "by.android.evgen.testapplication";//getPackageName();
         final List<InstrumentationInfo> list =
                 getPackageManager().queryInstrumentation(packageName, 0);
         if ( list.isEmpty() ) {
@@ -92,6 +92,7 @@ public class ScreenActivity extends Activity {
             Toast.makeText(this, "Cannot run instrumentation for " + packageName,
                     Toast.LENGTH_SHORT).show();
         }
+        finish();
     }
 
 }
